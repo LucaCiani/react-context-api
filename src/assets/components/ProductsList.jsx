@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
 
-export default function Products() {
+export default function ProductsList() {
     const [products, setProducts] = useState([]);
 
     const productsUrl = "https://fakestoreapi.com/products";
@@ -11,9 +12,8 @@ export default function Products() {
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, []);
-
     return (
-        <div className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-5">
+        <>
             {products &&
                 products.map((product) => {
                     return (
@@ -41,6 +41,6 @@ export default function Products() {
                         </div>
                     );
                 })}
-        </div>
+        </>
     );
 }
